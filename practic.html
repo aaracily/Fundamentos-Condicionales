@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practicando JavaScript Básico</title>
+</head>
+<body>
+    <h1>El ahorcado</h1>
+    <script>
+        //crear un arreglo con palabras
+        var palabras=["amor","cielo","mar","oso","mar"];
+       //elejir una palabra al azar
+        var palabraincognita= palabras[Math.floor(Math.random()*palabras.length)];
+      //configurar el arreglo respuesta 
+        var letrasincognitas=[];
+       for(var i=0; i<palabraincognita.length;i++){
+        letrasincognitas[i]="_ ";
+       };
+       var numeroletras = palabraincognita.length;
+       //plantear el ciclo del juego
+        while(numeroletras>0){
+            //mostrar el progreso del juego 
+            alert(letrasincognitas.join("  "));
+            //comienza a jugar, ingresa una letra para adivinar
+            var letraingresada= prompt("Adivina una letra o Cancela para salir.");
+        if(letraingresada === null){
+            break;//sale del ciclo del juego
+        }else if (letraingresada.length !==1){
+            alert("Por favor, ingrese solo una letra.");
+        }else{
+            //actualiza el estado del juego con la letra.
+            for(var j=0; j< palabraincognita.length; j++){
+                if(palabraincognita[j]=== letraingresada){
+                    letrasincognitas[j]=letraingresada;
+                    numeroletras--;
+                }
+            }
+        }
+        //fin del ciclo y del juego
+        }
+        //muestra la respuesta y felicita al jugador
+        alert(letrasincognitas.join(" "));
+        alert("bien hecho! la respuesta fue" +palabraincognita);
+       
+        /*document.write("un saludo, a  contar");
+        var contador=0;
+        while(contador<3){
+            document.write(contador+"  ");
+            contador++;
+        }
+        document.write("dejo de contar");
+        var nombre=prompt("escriba su nombre");
+        document.write("<p>");
+        var trampa="laura";
+        if(nombre===trampa){
+            document.write("Me pillaste");
+        }else{
+             document.write("Gracias  "+nombre+"  por registrarte.");
+        }*/
+       
+    </script>
+</body>
+</html>
